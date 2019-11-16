@@ -23,6 +23,8 @@ namespace Microsoft.eShopOnContainers.Services.Catalog.API
 
             Log.Logger = CreateSerilogLogger(configuration);
 
+            Log.Information("GetConfiguration -> " + configuration);
+
             try
             {
                 Log.Information("Configuring web host ({ApplicationContext})...", AppName);

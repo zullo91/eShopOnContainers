@@ -1,9 +1,8 @@
-# Containerized eShop - Catalog Service
-Sample reference containerized application, cross-platform and microservices architecture.
-Powered by Microsoft
+### Catalog API
 
-Check procedures on how to get it started at the Wiki:
-https://github.com/dotnet/eShopOnContainers/wiki
+# Run Dockerfile.development
 
+//This build and publish the .dll
+docker-compose -f docker-compose.yml build catalog.api
 
-
+docker-compose -f docker-compose.yml -f docker-compose.development.yml up catalog.api

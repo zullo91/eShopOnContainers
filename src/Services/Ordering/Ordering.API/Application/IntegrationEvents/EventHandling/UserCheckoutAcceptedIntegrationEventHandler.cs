@@ -26,6 +26,7 @@ namespace Ordering.API.Application.IntegrationEvents.EventHandling
         }
 
         /// <summary>
+        /// Deduplicating message events at the EventHandler level
         /// Integration event handler which starts the create order process
         /// </summary>
         /// <param name="@event">
@@ -54,7 +55,7 @@ namespace Ordering.API.Application.IntegrationEvents.EventHandling
                         var requestCreateOrder = new IdentifiedCommand<CreateOrderCommand, bool>(createOrderCommand, @event.RequestId);
 
                         _logger.LogInformation(
-                            "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})", 
+                            "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",
                             requestCreateOrder.GetGenericTypeName(),
                             nameof(requestCreateOrder.Id),
                             requestCreateOrder.Id,
